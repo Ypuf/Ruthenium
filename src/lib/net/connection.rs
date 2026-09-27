@@ -1,4 +1,5 @@
-use tokio::net::{TcpListener, TcpStream};
+use tokio::net::TcpStream;
+use tokio::net::tcp::{OwnedReadHalf, OwnedWriteHalf};
 
 enum ConnectionState {
     Handshaking,
@@ -10,19 +11,24 @@ enum ConnectionState {
 
 pub struct Connection {
     pub state: ConnectionState,
-    pub stream: &TcpStream,
+    pub reader: OwnedReadHalf,
+    pub writer: OwnedWriteHalf,
 }
 
 impl Connection {
     pub fn new(stream: TcpStream) -> Self {
+        let (reader, writer) = stream.into_split();
+
         Self {
-            stream,
+            reader,
+            writer,
             state: ConnectionState::Handshaking,
         }
     }
 
-    fn handle_packet(&self) -> Result<(), ()> {
-        let (tcp_reader, tcp_writer) = self.stream.into_split();
+    fn handle_packet(&mut self) -> Result<(), ()> {
+        // let (tcp_reader, tcp_writer) = self.stream.into_split();
         // tcp_reader.
+        Ok(())
     }
 }
