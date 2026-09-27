@@ -21,7 +21,7 @@ impl Connection {
         }
     }
 
-    fn handlePacket(&self) -> _ {
+    fn handle_packet(&self) -> Result<(), ()> {
         let (tcp_reader, tcp_writer) = self.stream.into_split();
         // tcp_reader.
     }
