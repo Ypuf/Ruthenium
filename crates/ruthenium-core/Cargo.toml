@@ -1,0 +1,29 @@
+[package]
+name = "ruthenium-core"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+ruthenium-config.workspace = true
+ruthenium-protocol.workspace = true
+ruthenium-utils.workspace = true
+
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+time = { workspace = true, features = ["parsing", "macros", "local-offset"]}
+rustyline.workspace = true
+arc-swap.workspace = true
+tokio = { workspace = true, features = ["macros", "net", "rt-multi-thread", "sync", "io-std", "signal", "fs", "io-util", "time"] }
+tokio-util = { workspace = true, features = ["rt"] }
+rsa.workspace = true
+rand.workspace = true
+futures.workspace = true
+libc.workspace = true
+crossbeam.workspace = true
+bytes.workspace = true
+uuid.workspace = true
+serde.workspace = true
+serde_repr.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true

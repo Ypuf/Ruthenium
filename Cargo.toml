@@ -1,7 +1,45 @@
-[package]
-name = "ruthenium"
+[workspace]
+resolver = "3"
+members = ["crates/ruthenium", "crates/ruthenium-config", "crates/ruthenium-core", "crates/ruthenium-protocol", "crates/ruthenium-utils"]
+
+[workspace.package]
 version = "0.1.0"
 edition = "2024"
 
-[dependencies]
+[workspace.dependencies]
+ruthenium-config = { path = "crates/ruthenium-config/" }
+ruthenium-core = { path = "crates/ruthenium-core/" }
+ruthenium-protocol = { path = "crates/ruthenium-protocol/" }
+ruthenium-utils = { path = "crates/ruthenium-utils/" }
+
+
 tokio = { version = "1.53.1", features = ["full"] }
+tokio-util = { version = "0.7.19" }
+
+serde = { version = "1.0.229", features = ["derive", "std"] }
+serde_json = { version = "1.0.151", features = ["std"] }
+serde_repr = { version = "0.1.21", default-features = false }
+
+thiserror = { version = "2.0.21" }
+bytes = { version = "1.12.1", features = ["serde", "std"] }
+
+futures = { version = "0.3.34" }
+rayon = { version = "1.12.0" }
+
+aes = { version = "0.9.3" }
+cfb8 = { version = "0.9.1" }
+
+async-compression = { version = "0.4.50" }
+flate2 = { version = "1.1.10", features = ["rust_backend"]}
+
+tracing = { version = "0.1.44", default-features = false, features = ["std", "attributes"] }
+tracing-subscriber = { version = "0.3.23", default-features = false, features = ["env-filter", "fmt", "ansi", "time", "std"] }
+time = { version = "0.3.55", features = ["std"] }
+toml = { version = "1.1.6+spec-1.1.0", features = ["parse", "display", "serde"] }
+rustyline = { version = "18.0.1", default-features = false, features = ["with-file-history"] }
+arc-swap = { version = "1.9.2" }
+rsa = { version = "0.10.0-rc.19", features = ["std", "encoding"] }
+rand = { version = "0.10.3", features = ["std", "std_rng", "thread_rng"] }
+libc = { version = "0.2.190" }
+crossbeam = { version = "0.8.5", features = ["std"] }
+uuid = { version = "1.27.0", features = ["serde", "v3", "v4", "std"] }

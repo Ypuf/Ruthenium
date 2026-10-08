@@ -1,0 +1,12 @@
+[package]
+name = "ruthenium"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+ruthenium-config.workspace = true
+ruthenium-core.workspace = true
+
+tokio = { workspace = true, features = ["macros", "rt-multi-thread", "signal"] }
+rayon.workspace = true
+tracing.workspace = true

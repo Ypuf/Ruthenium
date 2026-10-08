@@ -1,0 +1,20 @@
+[package]
+name = "ruthenium-protocol"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+serde = { workspace = true, features = ["derive"] }
+thiserror.workspace = true
+tokio = { workspace = true, features = ["io-util", "sync"] }
+bytes.workspace = true
+
+# encryption
+aes.workspace = true
+cfb8.workspace = true
+hybrid-array = "0.4.15"
+
+# compression
+async-compression = {workspace = true, features = ["tokio", "zlib", "deflate"]}
+flate2.workspace = true
+uuid.workspace = true
