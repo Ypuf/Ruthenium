@@ -120,6 +120,9 @@ impl<W: AsyncWrite + Unpin> StreamEncryptor<W> {
             last_unwritten_encrypted_byte: None,
         }
     }
+    pub fn into_inner(self) -> W {
+        self.writer
+    }
 }
 
 impl<W: AsyncWrite + Unpin> AsyncWrite for StreamEncryptor<W> {
